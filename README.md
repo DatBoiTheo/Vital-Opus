@@ -1,25 +1,11 @@
+#Quick description
+Vital-Opus is a Minecraft mod that merges survival automation with industrial production. Inspired by the resource management depth of Oxygen Not Included and the factory-building progression of Industrialist, Vital-Opus traps you underground on an alien world where survival depends entirely on your ability to engineer solutions.
 
-Installation information
-=======
+Manage critical systems — air, water, temperature, and hygiene — while building increasingly complex machinery to harvest resources and expand your industrial footprint. Every machine you build, every production chain you optimize, keeps you alive one step longer. Progress through technology tiers by processing raw materials into refined components, unlocking new machines and capabilities.
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+Compatible with popular tech mods like Create, Mekanism, Immersive Engineering, GregTech, and JEI, giving you endless ways to approach each challenge. This is not exploration — this is engineering for survival.
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
-
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
-
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
-
-Additional Resources: 
+##Additional Resources: 
 ==========
 Community Documentation: https://docs.neoforged.net/  
 NeoForged Discord: https://discord.neoforged.net/
