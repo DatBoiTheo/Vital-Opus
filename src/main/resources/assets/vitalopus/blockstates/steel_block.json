@@ -1,0 +1,9 @@
+{
+  "variants":
+  {
+    "":
+    {
+      "model": "vitalopus:block/steel_block"
+    }
+  }
+}

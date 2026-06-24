@@ -1,6 +1,11 @@
 {
+  "item.vitalopus.waterdrop": "Water drop",
+  "item.vitalopus.dried_waterdrop": "Dried water drop",
+
+  "block.vitalopus.steel_block": "Block of steel",
+
   "itemGroup.vitalopus": "Vital Opus Tab",
-  "vitalopus.configuration.title": "Example Mod Configs",
+  "vitalopus.configuration.title": "Vital Opus Configs",
   "vitalopus.configuration.section.vitalopus.common.toml": "Vital Opus Configs",
   "vitalopus.configuration.section.vitalopus.common.toml.title": "Vital Opus Configs"
 }

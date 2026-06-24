@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DDD",
+    "DWD",
+    "DDD"
+  ],
+  "key": {
+    "D": {
+      "item": "vitalopus:dried_waterdrop"
+    },
+    "W":
+    {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "result": {
+    "id": "vitalopus:waterdrop",
+    "count": 9
+  }
+}
