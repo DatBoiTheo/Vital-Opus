@@ -4,6 +4,13 @@
 
   "block.vitalopus.steel_block": "Block of steel",
 
+  "item.vitalopus.lightning_harvester": "Lightning Harvester",
+  "item.vitalopus.vacuum_tool": "Vacuum Tool",
+  "item.vitalopus.blower_builder": "Blower Builder",
+
+  "creativetab.vitalopus.vital_opus_items": "Vital Opus Items",
+  "creativetab.vitalopus.vital_opus_machines": "Vital Opus Machines",
+
   "itemGroup.vitalopus": "Vital Opus Tab",
   "vitalopus.configuration.title": "Vital Opus Configs",
   "vitalopus.configuration.section.vitalopus.common.toml": "Vital Opus Configs",

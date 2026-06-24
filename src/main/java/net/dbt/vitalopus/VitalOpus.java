@@ -2,6 +2,7 @@ package net.dbt.vitalopus;
 
 import com.mojang.logging.LogUtils;
 import net.dbt.vitalopus.block.ModBlocks;
+import net.dbt.vitalopus.item.ModCreativeModeTabs;
 import net.dbt.vitalopus.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.api.distmarker.Dist;
@@ -25,11 +26,14 @@ public class VitalOpus {
     public VitalOpus(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
         NeoForge.EVENT_BUS.register(this);
-        modEventBus.addListener(this::addCreative);
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
+        ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
+        modEventBus.addListener(this::addCreative);
+        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
@@ -48,15 +52,21 @@ public class VitalOpus {
         {
             event.accept(ModBlocks.STEEL_BLOCK);
         }
+        if(event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES)
+        {
+            event.accept(ModItems.LIGHTNING_HARVESTER);
+            event.accept(ModItems.BLOWER_BUILDER);
+            event.accept(ModItems.VACUUM_TOOL);
+        }
     }
 
     @SubscribeEvent
-    public void onSererStarting(ServerStartingEvent event)
+    public void onServerStarting(ServerStartingEvent event)
     {
 
     }
 
-    @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @EventBusSubscriber(modid = MOD_ID, value = Dist.CLIENT)
     public static class ClientModEvents
     {
         @SubscribeEvent
