@@ -4,11 +4,11 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.dbt.vitalopus.item.LightningHarvesterItem;
 import net.minecraft.client.Camera;
-import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.BlockHitResult;
@@ -49,7 +49,7 @@ public class LightningHarvesterRenderer {
 
         float partialTick = event.getPartialTick().getGameTimeDeltaPartialTick(true);
         Vec3 handPos = player.getEyePosition(partialTick)
-                .add(player.getLookAngle().scale(0.5));
+                .add(player.getLookAngle().scale(1)); // how far away from your face the start of the beam is
 
         PoseStack poseStack = event.getPoseStack();
         MultiBufferSource.BufferSource bufferSource = mc.renderBuffers().bufferSource();
@@ -57,17 +57,25 @@ public class LightningHarvesterRenderer {
         poseStack.pushPose();
         poseStack.translate(-camPos.x, -camPos.y, -camPos.z);
 
-        renderLightningBeam(poseStack, bufferSource, handPos, targetPos);
+        renderLightningBeam(mc, poseStack, bufferSource, handPos, targetPos);
 
         poseStack.popPose();
         bufferSource.endBatch(RenderType.lightning());
     }
 
-    private static void renderLightningBeam(PoseStack poseStack, MultiBufferSource bufferSource,
+    private static void renderLightningBeam(Minecraft mc, PoseStack poseStack, MultiBufferSource bufferSource,
                                             Vec3 from, Vec3 to) {
         VertexConsumer vc = bufferSource.getBuffer(RenderType.lightning());
         Matrix4f matrix = poseStack.last().pose();
         Random rand = new Random();
+
+        if (rand.nextFloat() < 0.3f) {
+            mc.level.addParticle(
+                    ParticleTypes.ENCHANTED_HIT,
+                    from.x, from.y, from.z,
+                    0.0, 0.0, 0.0
+            );
+        }
 
         Vec3 delta = to.subtract(from);
         double length = delta.length();
@@ -77,7 +85,6 @@ public class LightningHarvesterRenderer {
         Vec3 prev = from;
         for (int i = 1; i <= segments; i++) {
             double t = i * segLen;
-            // Interpolate along the beam with jitter
             Vec3 next = from.add(delta.scale(t));
             if (i < segments) {
                 next = next.add(
@@ -87,19 +94,18 @@ public class LightningHarvesterRenderer {
                 );
             }
 
-            // Draw a quad along the segment
             float width = 0.03f;
             vc.addVertex(matrix, (float)(prev.x + width), (float)prev.y, (float)prev.z)
-                    .setColor(0x66, 0xCC, 0xFF, 200)
+                    .setColor(0xDA, 0xCD, 0x69, 200)
                     .setUv(0, 0).setLight(LightTexture.FULL_BRIGHT);
             vc.addVertex(matrix, (float)(prev.x - width), (float)prev.y, (float)prev.z)
-                    .setColor(0x66, 0xCC, 0xFF, 200)
+                    .setColor(0xDA, 0xCD, 0x69, 200)
                     .setUv(1, 0).setLight(LightTexture.FULL_BRIGHT);
             vc.addVertex(matrix, (float)(next.x - width), (float)next.y, (float)next.z)
-                    .setColor(0x66, 0xCC, 0xFF, 200)
+                    .setColor(0xDA, 0xCD, 0x69, 200)
                     .setUv(1, 1).setLight(LightTexture.FULL_BRIGHT);
             vc.addVertex(matrix, (float)(next.x + width), (float)next.y, (float)next.z)
-                    .setColor(0x66, 0xCC, 0xFF, 200)
+                    .setColor(0xDA, 0xCD, 0x69, 200)
                     .setUv(0, 1).setLight(LightTexture.FULL_BRIGHT);
 
             prev = next;

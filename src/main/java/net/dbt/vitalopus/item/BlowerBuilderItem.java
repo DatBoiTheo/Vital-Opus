@@ -39,27 +39,22 @@ public class BlowerBuilderItem extends Item {
         SchematicData schematic = stack.get(ModDataComponents.SCHEMATIC.get());
         if (schematic == null || schematic.blocks().isEmpty()) return;
 
-        // Get current placement progress from NBT
         CompoundTag tag = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
         int index = tag.getInt(PROGRESS_KEY);
 
-        if (index >= schematic.blocks().size()) return; // Done
+        if (index >= schematic.blocks().size()) return;
 
         SchematicData.BlockInfo info = schematic.blocks().get(index);
         BlockPos worldPos = player.blockPosition().offset(info.relativePos());
 
-        // Place the block if the space is free
         if (level.getBlockState(worldPos).isAir()) {
             level.setBlock(worldPos, info.state(), 3);
 
-            // Spawn outward particles at the placed block (send to clients)
             Vec3 center = Vec3.atCenterOf(worldPos);
             ((ServerLevel) level).sendParticles(ParticleTypes.CLOUD,
                     center.x, center.y, center.z,
                     10, 0.3, 0.3, 0.3, 0.1);
         }
-
-        // Advance placement index
         tag.putInt(PROGRESS_KEY, index + 1);
         stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
     }

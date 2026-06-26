@@ -23,7 +23,7 @@ public class VacuumToolItem extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        player.startUsingItem(hand); // Enables the "holding use" state
+        player.startUsingItem(hand);
         return InteractionResultHolder.consume(player.getItemInHand(hand));
     }
 
@@ -32,7 +32,6 @@ public class VacuumToolItem extends Item {
         if (!(entity instanceof Player player)) return;
         if (level.isClientSide) return;
 
-        // Pull nearby item entities toward the player
         AABB searchBox = new AABB(player.blockPosition()).inflate(RANGE);
         List<ItemEntity> items = level.getEntitiesOfClass(ItemEntity.class, searchBox);
 
@@ -41,7 +40,6 @@ public class VacuumToolItem extends Item {
             double speed = 0.4;
             itemEntity.setDeltaMovement(direction.scale(speed));
 
-            // Pick it up if close enough
             if (itemEntity.distanceTo(player) < 1.5) {
                 itemEntity.playerTouch(player);
             }
@@ -50,11 +48,11 @@ public class VacuumToolItem extends Item {
 
     @Override
     public int getUseDuration(ItemStack stack, LivingEntity entity) {
-        return 72000; // Effectively infinite
+        return 72000;
     }
 
     @Override
     public UseAnim getUseAnimation(ItemStack stack) {
-        return UseAnim.BOW; // Keeps the arm raised
+        return UseAnim.CROSSBOW;
     }
 }

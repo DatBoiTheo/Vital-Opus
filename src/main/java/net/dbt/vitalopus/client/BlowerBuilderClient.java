@@ -29,7 +29,6 @@ public class BlowerBuilderClient {
 
         Random rand = new Random();
         for (int i = 0; i < 5; i++) {
-            // Spawn at the player, particles shoot OUTWARD
             double vx = (rand.nextDouble() - 0.5) * 0.5;
             double vy = rand.nextDouble() * 0.3;
             double vz = (rand.nextDouble() - 0.5) * 0.5;

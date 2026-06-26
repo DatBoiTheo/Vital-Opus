@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "vitalopus:item/penis"
+    "layer0": "vitalopus:item/lightning_harvester"
   }
 }

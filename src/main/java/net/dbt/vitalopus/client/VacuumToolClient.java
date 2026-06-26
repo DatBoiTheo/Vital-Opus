@@ -26,7 +26,6 @@ public class VacuumToolClient {
         ItemStack activeItem = player.getUseItem();
         if (!(activeItem.getItem() instanceof VacuumToolItem)) return;
 
-        // Spawn particles flowing inward toward the player
         Random rand = new Random();
         for (int i = 0; i < 5; i++) {
             double angle = rand.nextDouble() * Math.PI * 2;
@@ -39,12 +38,11 @@ public class VacuumToolClient {
             double py = player.getY() + 1 + oy;
             double pz = player.getZ() + oz;
 
-            // Velocity pointing inward toward the player
-            double vx = -ox * 0.1;
-            double vy = -oy * 0.1;
-            double vz = -oz * 0.1;
+            double vx = -ox * 0.2;
+            double vy = -oy * 0.2;
+            double vz = -oz * 0.2;
 
-            mc.level.addParticle(ParticleTypes.END_ROD, px, py, pz, vx, vy, vz);
+            mc.level.addParticle(ParticleTypes.WHITE_ASH, px, py, pz, vx, vy, vz);
         }
     }
 }
