@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.dbt.vitalopus.block.ModBlocks;
 import net.dbt.vitalopus.item.ModCreativeModeTabs;
 import net.dbt.vitalopus.item.ModItems;
+import net.dbt.vitalopus.worldgen.ModFeatures;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -32,6 +33,7 @@ public class VitalOpus {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModFeatures.FEATURES.register(modEventBus);
 
         modEventBus.addListener(this::addCreative);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);

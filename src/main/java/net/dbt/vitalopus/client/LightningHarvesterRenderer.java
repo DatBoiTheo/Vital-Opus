@@ -1,13 +1,10 @@
 package net.dbt.vitalopus.client;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.blaze3d.vertex.*;
 import net.dbt.vitalopus.item.LightningHarvesterItem;
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.LightTexture;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -17,7 +14,9 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
+import com.mojang.blaze3d.systems.RenderSystem;
 import org.joml.Matrix4f;
 
 import java.util.Random;
@@ -26,6 +25,16 @@ import static net.dbt.vitalopus.VitalOpus.MOD_ID;
 
 @EventBusSubscriber(modid = MOD_ID, value = Dist.CLIENT)
 public class LightningHarvesterRenderer {
+
+    @SubscribeEvent
+    public static void onArmSwing(InputEvent.InteractionKeyMappingTriggered event) {
+        Minecraft mc = Minecraft.getInstance();
+        if (mc.player == null) return;
+        ItemStack held = mc.player.getMainHandItem();
+        if (held.getItem() instanceof LightningHarvesterItem) {
+            event.setSwingHand(false);
+        }
+    }
 
     @SubscribeEvent
     public static void onRenderLevel(RenderLevelStageEvent event) {
@@ -49,38 +58,42 @@ public class LightningHarvesterRenderer {
 
         float partialTick = event.getPartialTick().getGameTimeDeltaPartialTick(true);
         Vec3 handPos = player.getEyePosition(partialTick)
-                .add(player.getLookAngle().scale(1)); // how far away from your face the start of the beam is
+                .add(player.getLookAngle().scale(1));
 
         PoseStack poseStack = event.getPoseStack();
-        MultiBufferSource.BufferSource bufferSource = mc.renderBuffers().bufferSource();
 
         poseStack.pushPose();
         poseStack.translate(-camPos.x, -camPos.y, -camPos.z);
 
-        renderLightningBeam(mc, poseStack, bufferSource, handPos, targetPos);
+        renderLightningBeam(mc, poseStack, handPos, targetPos);
 
         poseStack.popPose();
-        bufferSource.endBatch(RenderType.lightning());
     }
 
-    private static void renderLightningBeam(Minecraft mc, PoseStack poseStack, MultiBufferSource bufferSource,
-                                            Vec3 from, Vec3 to) {
-        VertexConsumer vc = bufferSource.getBuffer(RenderType.lightning());
-        Matrix4f matrix = poseStack.last().pose();
+    private static void renderLightningBeam(Minecraft mc, PoseStack poseStack, Vec3 from, Vec3 to) {
         Random rand = new Random();
 
         if (rand.nextFloat() < 0.05f) {
-            mc.level.addParticle(
-                    ParticleTypes.WAX_ON,
+            mc.level.addParticle(ParticleTypes.WAX_ON,
                     from.x, from.y, from.z,
-                    0.1f, 0.1f, 0.1f
-            );
+                    0.1f, 0.1f, 0.1f);
         }
+
+        RenderSystem.enableBlend();
+        RenderSystem.defaultBlendFunc();
+        RenderSystem.disableDepthTest();
+        RenderSystem.setShader(GameRenderer::getPositionColorShader);
+
+        BufferBuilder buffer = Tesselator.getInstance().begin(
+                VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);
+
+        Matrix4f matrix = poseStack.last().pose();
 
         Vec3 delta = to.subtract(from);
         double length = delta.length();
         int segments = (int)(length * 6);
         double segLen = 1.0 / segments;
+        float width = 0.06f;
 
         Vec3 prev = from;
         for (int i = 1; i <= segments; i++) {
@@ -90,25 +103,20 @@ public class LightningHarvesterRenderer {
                 next = next.add(
                         (rand.nextDouble() - 0.5) * 0.2,
                         (rand.nextDouble() - 0.5) * 0.2,
-                        (rand.nextDouble() - 0.5) * 0.2
-                );
+                        (rand.nextDouble() - 0.5) * 0.2);
             }
 
-            float width = 0.06f;
-            vc.addVertex(matrix, (float)(prev.x + width), (float)prev.y, (float)prev.z)
-                    .setColor(0xDA, 0xCD, 0x69, 200)
-                    .setUv(0, 0).setLight(LightTexture.FULL_BRIGHT);
-            vc.addVertex(matrix, (float)(prev.x - width), (float)prev.y, (float)prev.z)
-                    .setColor(0xDA, 0xCD, 0x69, 200)
-                    .setUv(1, 0).setLight(LightTexture.FULL_BRIGHT);
-            vc.addVertex(matrix, (float)(next.x - width), (float)next.y, (float)next.z)
-                    .setColor(0xDA, 0xCD, 0x69, 200)
-                    .setUv(1, 1).setLight(LightTexture.FULL_BRIGHT);
-            vc.addVertex(matrix, (float)(next.x + width), (float)next.y, (float)next.z)
-                    .setColor(0xDA, 0xCD, 0x69, 200)
-                    .setUv(0, 1).setLight(LightTexture.FULL_BRIGHT);
+            buffer.addVertex(matrix, (float)(prev.x + width), (float)prev.y, (float)prev.z).setColor(0xDA, 0xCD, 0x69, 200);
+            buffer.addVertex(matrix, (float)(prev.x - width), (float)prev.y, (float)prev.z).setColor(0xDA, 0xCD, 0x69, 200);
+            buffer.addVertex(matrix, (float)(next.x - width), (float)next.y, (float)next.z).setColor(0xDA, 0xCD, 0x69, 200);
+            buffer.addVertex(matrix, (float)(next.x + width), (float)next.y, (float)next.z).setColor(0xDA, 0xCD, 0x69, 200);
 
             prev = next;
         }
+
+        BufferUploader.drawWithShader(buffer.buildOrThrow());
+
+        RenderSystem.enableDepthTest();
+        RenderSystem.disableBlend();
     }
 }

@@ -13,9 +13,9 @@
 
 
   "block.vitalopus.oxylite": "Oxylite",
+  "block.vitalopus.block_of_algae": "Block of algae",
+  "item.vitalopus.algae_item": "Algae",
 
-
-  "item.vitalopus.algae": "Algae",
   "item.vitalopus.carbon_dioxide": "Carbon dioxide",
   "item.vitalopus.ceramic": "Ceramic",
   "item.vitalopus.chlorine": "Chlorine",
@@ -40,6 +40,7 @@
 
   "creativetab.vitalopus.vital_opus_items": "Vital Opus Items",
   "creativetab.vitalopus.vital_opus_machines": "Vital Opus Machines",
+  "creativetab.vitalopus.vital_opus_blocks": "Vital Opus Blocks",
 
   "itemGroup.vitalopus": "Vital Opus Tab",
   "vitalopus.configuration.title": "Vital Opus Configs",

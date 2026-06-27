@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "side": "vitalopus:block/oxylite_side",
-    "end": "vitalopus:block/oxylite_top",
-    "particle": "vitalopus:block/oxylite_side"
-  }
-}

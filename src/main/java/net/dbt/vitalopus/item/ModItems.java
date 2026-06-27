@@ -25,8 +25,9 @@ public class ModItems {
     public static final DeferredItem<Item> DRIED_WATERDROP = ITEMS.register("dried_waterdrop",
             () -> new Item(new Item.Properties()));
 
-    public static final DeferredItem<Item> ALGAE = ITEMS.register("algae",
+    public static final DeferredItem<Item> ALGAE_ITEM = ITEMS.register("algae_item",
             () -> new Item(new Item.Properties()));
+
     public static final DeferredItem<Item> CARBON_DIOXIDE = ITEMS.register("carbon_dioxide",
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> CERAMIC = ITEMS.register("ceramic",

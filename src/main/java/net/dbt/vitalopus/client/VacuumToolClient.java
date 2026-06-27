@@ -30,22 +30,18 @@ public class VacuumToolClient {
 
         Vec3 look = player.getLookAngle();
         Vec3 eyePos = player.getEyePosition(1.0f);
-        // Hand position — slightly below eye level
         Vec3 handPos = new Vec3(eyePos.x, eyePos.y - 0.3, eyePos.z);
 
-        Vec3 right = look.cross(new Vec3(0, 1, 0)).normalize();
-        Vec3 up = right.cross(look).normalize();
-
-        // Find single closest item within 2 blocks in front
+        // Find single closest item within 8 blocks in front
         ItemEntity target = null;
         double closestDist = Double.MAX_VALUE;
 
         for (ItemEntity itemEntity : mc.level.getEntitiesOfClass(ItemEntity.class,
-                player.getBoundingBox().inflate(3))) {
+                player.getBoundingBox().inflate(9))) {
             Vec3 itemPos = itemEntity.position();
             Vec3 toItem = itemPos.subtract(eyePos);
             double along = toItem.dot(look);
-            if (along < 0 || along > 2.0) continue;
+            if (along < 0 || along > 8.0) continue;
 
             Vec3 projected = eyePos.add(look.scale(along));
             double perpDist = itemPos.distanceTo(projected);
@@ -62,16 +58,20 @@ public class VacuumToolClient {
 
         spiralAngle += 0.6;
 
-        // Direction from item toward player hand
         Vec3 itemPos = target.position();
-        Vec3 beamDir = handPos.subtract(itemPos).normalize();
-        Vec3 beamRight = beamDir.cross(new Vec3(0, 1, 0)).normalize();
+
+        // Use look direction as beam axis instead of item-to-hand vector
+        // so the spiral always faces correctly regardless of vertical angle
+        Vec3 beamDir = eyePos.subtract(itemPos).normalize();
+        Vec3 worldUp = new Vec3(0, 1, 0);
+        Vec3 beamRight = Math.abs(beamDir.dot(worldUp)) > 0.99
+                ? beamDir.cross(new Vec3(1, 0, 0)).normalize()
+                : beamDir.cross(worldUp).normalize();
         Vec3 beamUp = beamRight.cross(beamDir).normalize();
 
         for (int i = 0; i < 5; i++) {
-            // Spawn from item position toward hand
             double distanceAlong = closestDist * (i / 5.0);
-            double radius = 0.6 * (1.0 - (distanceAlong / closestDist)); // shrinks toward player
+            double radius = 0.6 * (1.0 - (distanceAlong / closestDist));
             double angle = spiralAngle + (i * (Math.PI * 2 / 5));
 
             double px = itemPos.x + beamDir.x * distanceAlong
@@ -88,13 +88,12 @@ public class VacuumToolClient {
             double dy = handPos.y - py;
             double dz = handPos.z - pz;
             double len = Math.sqrt(dx * dx + dy * dy + dz * dz);
-            double speed = 0.5;
 
             mc.level.addParticle(ParticleTypes.WHITE_SMOKE,
                     px, py, pz,
-                    (dx / len) * speed,
-                    (dy / len) * speed,
-                    (dz / len) * speed);
+                    (dx / len) * 0.5,
+                    (dy / len) * 0.5,
+                    (dz / len) * 0.5);
         }
     }
 }

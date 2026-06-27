@@ -5,13 +5,12 @@ import net.dbt.vitalopus.item.LightningHarvesterItem;
 import net.dbt.vitalopus.item.VacuumToolItem;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.phys.AABB;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
@@ -32,20 +31,18 @@ public class GameEventHandlers {
         if (event.getLevel().isClientSide()) return;
         ServerLevel level = (ServerLevel) event.getLevel();
 
-        for (ItemEntity itemEntity : level.getEntitiesOfClass(ItemEntity.class,
-                new AABB(level.getWorldBorder().getMinX(), -64, level.getWorldBorder().getMinZ(),
-                        level.getWorldBorder().getMaxX(), 320, level.getWorldBorder().getMaxZ()))) {
+        for (ServerPlayer player : level.players()) {
+            boolean vacuumActive = player.isUsingItem() &&
+                    player.getUseItem().getItem() instanceof VacuumToolItem;
 
-            Player nearestPlayer = level.getNearestPlayer(itemEntity, 16);
-            if (nearestPlayer == null) {
-                itemEntity.setPickUpDelay(2);
-                continue;
-            }
+            for (ItemEntity itemEntity : level.getEntitiesOfClass(ItemEntity.class,
+                    player.getBoundingBox().inflate(16))) {
 
-            if (nearestPlayer.getUseItem().getItem() instanceof VacuumToolItem) {
-                itemEntity.setPickUpDelay(0);
-            } else {
-                itemEntity.setPickUpDelay(2);
+                if (vacuumActive && VacuumToolItem.isReadyForPickup(itemEntity.getUUID())) {
+                    itemEntity.setPickUpDelay(0);
+                } else {
+                    itemEntity.setPickUpDelay(2);
+                }
             }
         }
     }
