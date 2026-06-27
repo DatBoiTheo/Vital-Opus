@@ -1,6 +1,7 @@
 package net.dbt.vitalopus.item;
 
 import net.dbt.vitalopus.VitalOpus;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.Tiers;
@@ -23,6 +24,83 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> DRIED_WATERDROP = ITEMS.register("dried_waterdrop",
             () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> ALGAE = ITEMS.register("algae",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> CARBON_DIOXIDE = ITEMS.register("carbon_dioxide",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> CERAMIC = ITEMS.register("ceramic",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> CHLORINE = ITEMS.register("chlorine",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> DIAMOND = ITEMS.register("diamond",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> DIRT = ITEMS.register("dirt",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> GENETIC_OOZE = ITEMS.register("genetic_ooze",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> GRANITE = ITEMS.register("granite",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> HYDROGEN = ITEMS.register("hydrogen",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> OBSIDIAN = ITEMS.register("obsidian",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> OXYGEN = ITEMS.register("oxygen",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> POLLUTED_DIRT = ITEMS.register("polluted_dirt",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> REGOLITH = ITEMS.register("regolith",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> SAND = ITEMS.register("sand",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> SANDSTONE = ITEMS.register("sandstone",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> SNOW = ITEMS.register("snow",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> SULFUR = ITEMS.register("sulfur",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> SUPER_COOLANT = ITEMS.register("super_coolant",
+            () -> new Item(new Item.Properties()));
+
+        public static final DeferredItem<Item> MEAL_LICE = ITEMS.register("meal_lice",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
+                    .nutrition(1)
+                    .saturationModifier(1f)
+                    .build())));
+        public static final DeferredItem<Item> BURIED_MUCKROOT_SEED = ITEMS.register("buried_muckroot_seed",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
+                    .nutrition(1)
+                    .saturationModifier(1f)
+                    .build())));
+        public static final DeferredItem<Item> MUSH_BAR = ITEMS.register("mush_bar",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
+                    .nutrition(1)
+                    .saturationModifier(1f)
+                    .build())));
+    public static final DeferredItem<Item> MUSH_FRY = ITEMS.register("mush_fry",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
+                    .nutrition(1)
+                    .saturationModifier(1f)
+                    .build())));
+        public static final DeferredItem<Item> NUTRIENT_BAR = ITEMS.register("nutrient_bar",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
+                    .nutrition(1)
+                    .saturationModifier(1f)
+                    .build())));
+        public static final DeferredItem<Item> RAW_EGG = ITEMS.register("raw_egg",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
+                    .nutrition(1)
+                    .saturationModifier(1f)
+                    .build())));
+        public static final DeferredItem<Item> SLEET_WHEAT_SEED = ITEMS.register("sleet_wheat_seed",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
+                    .nutrition(1)
+                    .saturationModifier(1f)
+                    .build())));
+
+
+
+
 
 //    public static final DeferredItem<Item> BARBEQUE = ITEMS.register("dried_waterdrop",
 //            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
@@ -104,11 +182,7 @@ public class ModItems {
 //                    .nutrition(1)
 //                    .saturationModifier(1f)
 //                    .build())));
-//    public static final DeferredItem<Item> MEAL_LICE = ITEMS.register("dried_waterdrop",
-//            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
-//                    .nutrition(1)
-//                    .saturationModifier(1f)
-//                    .build())));
+
 //    public static final DeferredItem<Item> MEAT = ITEMS.register("dried_waterdrop",
 //            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
 //                    .nutrition(1)
@@ -119,21 +193,8 @@ public class ModItems {
 //                    .nutrition(1)
 //                    .saturationModifier(1f)
 //                    .build())));
-//    public static final DeferredItem<Item> MUCKROOT = ITEMS.register("dried_waterdrop",
-//            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
-//                    .nutrition(1)
-//                    .saturationModifier(1f)
-//                    .build())));
-//    public static final DeferredItem<Item> MUSH_BAR = ITEMS.register("dried_waterdrop",
-//            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
-//                    .nutrition(1)
-//                    .saturationModifier(1f)
-//                    .build())));
-//    public static final DeferredItem<Item> MUSH_FRY = ITEMS.register("dried_waterdrop",
-//            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
-//                    .nutrition(1)
-//                    .saturationModifier(1f)
-//                    .build())));
+
+
 //    public static final DeferredItem<Item> MUSHROOM = ITEMS.register("dried_waterdrop",
 //            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
 //                    .nutrition(1)
@@ -149,11 +210,7 @@ public class ModItems {
 //                    .nutrition(1)
 //                    .saturationModifier(1f)
 //                    .build())));
-//    public static final DeferredItem<Item> NUTRIENT_BAR = ITEMS.register("dried_waterdrop",
-//            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
-//                    .nutrition(1)
-//                    .saturationModifier(1f)
-//                    .build())));
+
 //    public static final DeferredItem<Item> OMELETTE = ITEMS.register("dried_waterdrop",
 //            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
 //                    .nutrition(1)
@@ -184,11 +241,7 @@ public class ModItems {
 //                    .nutrition(1)
 //                    .saturationModifier(1f)
 //                    .build())));
-//    public static final DeferredItem<Item> RAW_EGG = ITEMS.register("dried_waterdrop",
-//            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
-//                    .nutrition(1)
-//                    .saturationModifier(1f)
-//                    .build())));
+
 //    public static final DeferredItem<Item> RAW_SHELLFISH = ITEMS.register("dried_waterdrop",
 //            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
 //                    .nutrition(1)
@@ -199,11 +252,7 @@ public class ModItems {
 //                    .nutrition(1)
 //                    .saturationModifier(1f)
 //                    .build())));
-//    public static final DeferredItem<Item> SLEET_WHEAT_GRAIN = ITEMS.register("dried_waterdrop",
-//            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
-//                    .nutrition(1)
-//                    .saturationModifier(1f)
-//                    .build())));
+
 //    public static final DeferredItem<Item> SPICY_TOFU = ITEMS.register("dried_waterdrop",
 //            () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
 //                    .nutrition(1)

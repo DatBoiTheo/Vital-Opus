@@ -21,6 +21,25 @@ public class ModCreativeModeTabs {
                     .displayItems((itemDisplayParameters, output) -> {
                       output.accept(ModItems.WATERDROP);
                       output.accept(ModItems.DRIED_WATERDROP);
+                      output.accept(ModBlocks.OXYLITE);
+                      output.accept(ModItems.ALGAE);
+                      output.accept(ModItems.CARBON_DIOXIDE);
+                      output.accept(ModItems.CERAMIC);
+                      output.accept(ModItems.CHLORINE);
+                      output.accept(ModItems.DIAMOND);
+                      output.accept(ModItems.DIRT);
+                      output.accept(ModItems.GENETIC_OOZE);
+                      output.accept(ModItems.GRANITE);
+                      output.accept(ModItems.HYDROGEN);
+                      output.accept(ModItems.OBSIDIAN);
+                      output.accept(ModItems.OXYGEN);
+                      output.accept(ModItems.POLLUTED_DIRT);
+                      output.accept(ModItems.REGOLITH);
+                      output.accept(ModItems.SAND);
+                      output.accept(ModItems.SANDSTONE);
+                      output.accept(ModItems.SNOW);
+                      output.accept(ModItems.SULFUR);
+                      output.accept(ModItems.SUPER_COOLANT);
                     }).build());
 
     public static final Supplier<CreativeModeTab> VITAL_OPUS_MACHINES_TAB = CREATIVE_MODE_TAB.register("vital_opus_machines_tab",

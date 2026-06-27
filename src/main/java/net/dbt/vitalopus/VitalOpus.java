@@ -23,6 +23,7 @@ import org.slf4j.Logger;
 public class VitalOpus {
     public static final String MOD_ID = "vitalopus";
     public static final Logger LOGGER = LogUtils.getLogger();
+
     public VitalOpus(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
         NeoForge.EVENT_BUS.register(this);
@@ -48,9 +49,20 @@ public class VitalOpus {
             event.accept(ModItems.WATERDROP);
             event.accept(ModItems.DRIED_WATERDROP);
         }
+        if(event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS)
+        {
+            event.accept(ModItems.MEAL_LICE);
+            event.accept(ModItems.BURIED_MUCKROOT_SEED);
+            event.accept(ModItems.MUSH_BAR);
+            event.accept(ModItems.MUSH_FRY);
+            event.accept(ModItems.NUTRIENT_BAR);
+            event.accept(ModItems.RAW_EGG);
+            event.accept(ModItems.SLEET_WHEAT_SEED);
+        }
         if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
         {
             event.accept(ModBlocks.STEEL_BLOCK);
+            event.accept(ModBlocks.OXYLITE);
         }
         if(event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES)
         {

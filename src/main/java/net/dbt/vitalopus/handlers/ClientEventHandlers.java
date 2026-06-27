@@ -1,6 +1,10 @@
-package net.dbt.vitalopus.client;
+package net.dbt.vitalopus.handlers;
 
+import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.dbt.vitalopus.item.BlowerBuilderItem;
+import net.dbt.vitalopus.item.LightningHarvesterItem;
+import net.dbt.vitalopus.item.VacuumToolItem;
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -8,11 +12,13 @@ import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import org.joml.Matrix4f;
@@ -102,5 +108,30 @@ public class ClientEventHandlers {
 
         int kg = stack.getCount() * 10;
         event.getToolTip().add(Component.literal(kg + " kg"));
+    }
+    @SubscribeEvent
+    public static void onClientTick(ClientTickEvent.Post event) {
+        Minecraft mc = Minecraft.getInstance();
+        Player player = mc.player;
+        if (player == null) return;
+
+        boolean usingTool = player.isUsingItem() &&
+                (player.getUseItem().getItem() instanceof VacuumToolItem ||
+                        player.getUseItem().getItem() instanceof BlowerBuilderItem);
+
+        boolean miningWithHarvester = player.getMainHandItem().getItem() instanceof LightningHarvesterItem
+                && InputConstants.isKeyDown(
+                Minecraft.getInstance().getWindow().getWindow(),
+                mc.options.keyAttack.getKey().getValue()
+        );
+
+        if (!usingTool && !miningWithHarvester) return;
+
+        mc.options.keyUp.setDown(false);
+        mc.options.keyDown.setDown(false);
+        mc.options.keyLeft.setDown(false);
+        mc.options.keyRight.setDown(false);
+        mc.options.keyJump.setDown(false);
+        mc.options.keySprint.setDown(false);
     }
 }

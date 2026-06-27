@@ -1,8 +1,38 @@
 {
   "item.vitalopus.waterdrop": "Water drop",
   "item.vitalopus.dried_waterdrop": "Dried water drop",
-
   "block.vitalopus.steel_block": "Block of steel",
+
+  "item.vitalopus.meal_lice": "Meal lice",
+  "item.vitalopus.buried_muckroot_seed": "Buried muckroot seed",
+  "item.vitalopus.mush_bar": "Mush bar",
+  "item.vitalopus.mush_fry": "Mush fry",
+  "item.vitalopus.nutrient_bar": "Nutrient bar",
+  "item.vitalopus.raw_egg": "Raw egg",
+  "item.vitalopus.sleet_wheat_seed": "Sleet wheat seed",
+
+
+  "block.vitalopus.oxylite": "Oxylite",
+
+
+  "item.vitalopus.algae": "Algae",
+  "item.vitalopus.carbon_dioxide": "Carbon dioxide",
+  "item.vitalopus.ceramic": "Ceramic",
+  "item.vitalopus.chlorine": "Chlorine",
+  "item.vitalopus.diamond": "Diamond",
+  "item.vitalopus.dirt": "Dirt",
+  "item.vitalopus.genetic_ooze": "Genetic ooze",
+  "item.vitalopus.granite": "Granite",
+  "item.vitalopus.hydrogen": "Hydrogen",
+  "item.vitalopus.obsidian": "Obsidian",
+  "item.vitalopus.oxygen": "Oxygen",
+  "item.vitalopus.polluted_dirt": "Polluted dirt",
+  "item.vitalopus.regolith": "Regolith",
+  "item.vitalopus.sand": "Sand",
+  "item.vitalopus.sandstone": "Sandstone",
+  "item.vitalopus.snow": "Snow",
+  "item.vitalopus.sulfur": "Sulfur",
+  "item.vitalopus.super_coolant": "Super coolant",
 
   "item.vitalopus.lightning_harvester": "Lightning Harvester",
   "item.vitalopus.vacuum_tool": "Vacuum Tool",

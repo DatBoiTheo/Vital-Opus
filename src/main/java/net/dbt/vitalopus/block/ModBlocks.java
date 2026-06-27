@@ -20,7 +20,13 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of()
             .strength(4f)
             .requiresCorrectToolForDrops()
-            .sound(SoundType.VAULT)));
+            .sound(SoundType.POLISHED_TUFF)));
+
+    public static final DeferredBlock<Block> OXYLITE = registerBlock("oxylite",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4f)
+                    .requiresCorrectToolForDrops()));
+
 
 
 //    public static final DeferredBlock<Block> NEUTRONIUM = registerBlock("neutronium",
@@ -164,10 +170,6 @@ public class ModBlocks {
 //                    .strength(4f)
 //                    .requiresCorrectToolForDrops()));
 //    public static final DeferredBlock<Block> GENETIC_OOZE = registerBlock("neutronium",
-//            () -> new Block(BlockBehaviour.Properties.of()
-//                    .strength(4f)
-//                    .requiresCorrectToolForDrops()));
-//    public static final DeferredBlock<Block> OXYLITE = registerBlock("neutronium",
 //            () -> new Block(BlockBehaviour.Properties.of()
 //                    .strength(4f)
 //                    .requiresCorrectToolForDrops()));

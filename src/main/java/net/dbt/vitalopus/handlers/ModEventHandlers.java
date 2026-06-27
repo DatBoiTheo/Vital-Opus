@@ -1,4 +1,4 @@
-package net.dbt.vitalopus;
+package net.dbt.vitalopus.handlers;
 
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;

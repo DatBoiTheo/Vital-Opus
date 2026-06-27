@@ -69,11 +69,11 @@ public class LightningHarvesterRenderer {
         Matrix4f matrix = poseStack.last().pose();
         Random rand = new Random();
 
-        if (rand.nextFloat() < 0.3f) {
+        if (rand.nextFloat() < 0.05f) {
             mc.level.addParticle(
-                    ParticleTypes.ENCHANTED_HIT,
+                    ParticleTypes.WAX_ON,
                     from.x, from.y, from.z,
-                    0.0, 0.0, 0.0
+                    0.1f, 0.1f, 0.1f
             );
         }
 
@@ -94,7 +94,7 @@ public class LightningHarvesterRenderer {
                 );
             }
 
-            float width = 0.03f;
+            float width = 0.06f;
             vc.addVertex(matrix, (float)(prev.x + width), (float)prev.y, (float)prev.z)
                     .setColor(0xDA, 0xCD, 0x69, 200)
                     .setUv(0, 0).setLight(LightTexture.FULL_BRIGHT);
