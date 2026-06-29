@@ -2,8 +2,10 @@ package net.dbt.vitalopus.block;
 
 import net.dbt.vitalopus.VitalOpus;
 import net.dbt.vitalopus.item.ModItems;
+import net.dbt.vitalopus.mining.TieredBlock;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DropExperienceBlock;
@@ -25,43 +27,77 @@ public class ModBlocks {
             .sound(SoundType.POLISHED_TUFF)));
 
     public static final DeferredBlock<Block> BLOCK_OF_ALGAE = registerBlock("block_of_algae",
-            () -> new DropExperienceBlock(UniformInt.of(0, 0), BlockBehaviour.Properties.of()
-                    .strength(4f)
-                    .requiresCorrectToolForDrops()));
+            () -> new TieredBlock(0, BlockBehaviour.Properties.of()
+                    .strength(2.18f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.MOSS)));
     public static final DeferredBlock<Block> BLOCK_OF_FERTILIZER = registerBlock("block_of_fertilizer",
-            () -> new DropExperienceBlock(UniformInt.of(0, 0), BlockBehaviour.Properties.of()
-                    .strength(4f)
-                    .requiresCorrectToolForDrops()));
+            () -> new TieredBlock(0, BlockBehaviour.Properties.of()
+                    .strength(0.727f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.GRAVEL)));
     public static final DeferredBlock<Block> BLOCK_OF_SAND = registerBlock("block_of_sand",
-            () -> new DropExperienceBlock(UniformInt.of(0, 0), BlockBehaviour.Properties.of()
-                    .strength(4f)
-                    .requiresCorrectToolForDrops()));
+            () -> new TieredBlock(0, BlockBehaviour.Properties.of()
+                    .strength(4.3f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.SAND)));
     public static final DeferredBlock<Block> BLOCK_OF_COPPER_ORE = registerBlock("block_of_copper_ore",
-            () -> new DropExperienceBlock(UniformInt.of(0, 0), BlockBehaviour.Properties.of()
-                    .strength(4f)
-                    .requiresCorrectToolForDrops()));
+            () -> new TieredBlock(0, BlockBehaviour.Properties.of()
+                    .strength(4.3f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.COPPER)));
     public static final DeferredBlock<Block> BLOCK_OF_SANDSTONE = registerBlock("block_of_sandstone",
-            () -> new DropExperienceBlock(UniformInt.of(0, 0), BlockBehaviour.Properties.of()
-                    .strength(4f)
-                    .requiresCorrectToolForDrops()));
+            () -> new TieredBlock(0, BlockBehaviour.Properties.of()
+                    .strength(4.3f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE)));
     public static final DeferredBlock<Block> BLOCK_OF_GRANITE = registerBlock("block_of_granite",
-            () -> new DropExperienceBlock(UniformInt.of(0, 0), BlockBehaviour.Properties.of()
-                    .strength(4f)
-                    .requiresCorrectToolForDrops()));
+            () -> new TieredBlock(1, BlockBehaviour.Properties.of()
+                    .strength(8.36f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE)));
     public static final DeferredBlock<Block> BLOCK_OF_DIRT = registerBlock("block_of_dirt",
-            () -> new DropExperienceBlock(UniformInt.of(0, 0), BlockBehaviour.Properties.of()
-                    .strength(4f)
-                    .requiresCorrectToolForDrops()));
+            () -> new TieredBlock(0, BlockBehaviour.Properties.of()
+                    .strength(2.91f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.ROOTED_DIRT)));
     public static final DeferredBlock<Block> BLOCK_OF_SLIME = registerBlock("block_of_slime",
-            () -> new DropExperienceBlock(UniformInt.of(0, 0), BlockBehaviour.Properties.of()
-                    .strength(4f)
-                    .requiresCorrectToolForDrops()));
+            () -> new TieredBlock(0, BlockBehaviour.Properties.of()
+                    .strength(2.18f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.WET_GRASS)));
+    public static final DeferredBlock<Block> BLOCK_OF_CLAY = registerBlock("block_of_clay",
+            () -> new TieredBlock(0, BlockBehaviour.Properties.of()
+                    .strength(4.0f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.SUSPICIOUS_SAND)));
+    public static final DeferredBlock<Block> BLOCK_OF_GOLD_AMALGAM = registerBlock("block_of_gold_amalgam",
+            () -> new TieredBlock(0, BlockBehaviour.Properties.of()
+                    .strength(4.0f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.NETHER_GOLD_ORE)));
+    public static final DeferredBlock<Block> BLOCK_OF_IGNEOUS_ROCK = registerBlock("block_of_igneous_rock",
+            () -> new TieredBlock(0, BlockBehaviour.Properties.of()
+                    .strength(4.0f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> BLOCK_OF_ABYSSALITE = registerBlock("block_of_abyssalite",
+            () -> new TieredBlock(0, BlockBehaviour.Properties.of()
+                    .strength(4.0f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.AMETHYST)));
+    public static final DeferredBlock<Block> BLOCK_OF_DIAMOND = registerBlock("block_of_diamond",
+            () -> new TieredBlock(0, BlockBehaviour.Properties.of()
+                    .strength(4.0f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.TUFF)));
 
 
     public static final DeferredBlock<Block> BLOCK_OF_OXYLITE = registerBlock("block_of_oxylite",
-            () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(4f)
-                    .noLootTable()));
+            () -> new TieredBlock(0, BlockBehaviour.Properties.of()
+                    .strength(1.45f)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.CORAL_BLOCK)));
 
 
 //    public static final DeferredBlock<Block> NEUTRONIUM = registerBlock("neutronium",
@@ -306,20 +342,17 @@ public class ModBlocks {
 //                    .requiresCorrectToolForDrops()));
 
 
-    private static <T extends Block> DeferredBlock<T> registerBlock (String name, Supplier<T> block)
-    {
+    private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
         return toReturn;
     }
 
-    private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block)
-    {
+    private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block) {
         ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
 
-    public static void register(IEventBus eventBus)
-    {
+    public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
     }
 }

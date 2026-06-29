@@ -53,7 +53,7 @@ public class ClientEventHandlers {
                 item instanceof ShieldItem || item instanceof ElytraItem ||
                 item instanceof FishingRodItem || item instanceof ShearsItem ||
                 item instanceof FlintAndSteelItem || item instanceof SpyglassItem ||
-                item instanceof BrushItem) return;
+                item instanceof BrushItem) continue;
 
             int kg = stack.getCount() * 10;
             Component text = Component.literal(kg + " kg");

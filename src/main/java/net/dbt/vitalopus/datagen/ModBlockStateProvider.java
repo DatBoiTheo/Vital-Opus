@@ -23,6 +23,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.BLOCK_OF_GRANITE);
         blockWithItem(ModBlocks.BLOCK_OF_DIRT);
         blockWithItem(ModBlocks.BLOCK_OF_SLIME);
+        blockWithItem(ModBlocks.BLOCK_OF_ABYSSALITE);
+        blockWithItem(ModBlocks.BLOCK_OF_CLAY);
+        blockWithItem(ModBlocks.BLOCK_OF_IGNEOUS_ROCK);
+        blockWithItem(ModBlocks.BLOCK_OF_GOLD_AMALGAM);
 
         blockWithItem(ModBlocks.STEEL_BLOCK);
     }

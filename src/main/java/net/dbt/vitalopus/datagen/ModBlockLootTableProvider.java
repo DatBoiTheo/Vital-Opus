@@ -54,6 +54,24 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         add(ModBlocks.BLOCK_OF_SLIME.get(),
                 block -> createMultipleOreDropsBasic(ModBlocks.BLOCK_OF_SLIME.get(),
                         ModItems.SLIME_ITEM.get(), 10, 10));
+        add(ModBlocks.BLOCK_OF_CLAY.get(),
+                block -> createMultipleOreDropsBasic(ModBlocks.BLOCK_OF_CLAY.get(),                     // CHECK
+                        ModItems.CLAY_ITEM.get(), 5, 8));
+        add(ModBlocks.BLOCK_OF_GOLD_AMALGAM.get(),
+                block -> createMultipleOreDropsBasic(ModBlocks.BLOCK_OF_GOLD_AMALGAM.get(),             // CHECK
+                        ModItems.GOLD_AMALGAM_ITEM.get(), 38, 39));
+        add(ModBlocks.BLOCK_OF_IGNEOUS_ROCK.get(),
+                block -> createMultipleOreDropsBasic(ModBlocks.BLOCK_OF_IGNEOUS_ROCK.get(),
+                        ModItems.IGNEOUS_ROCK_ITEM.get(), 92, 92));
+        add(ModBlocks.BLOCK_OF_DIAMOND.get(),
+                block -> createMultipleOreDropsBasic(ModBlocks.BLOCK_OF_DIAMOND.get(),                  // CHECK
+                        ModItems.DIAMOND_ITEM.get(), 1, 1));
+        add(ModBlocks.BLOCK_OF_ABYSSALITE.get(),
+                block -> createMultipleOreDropsBasic(ModBlocks.BLOCK_OF_ABYSSALITE.get(),
+                        ModItems.ABYSSALITE_ITEM.get(), 25, 25));
+        add(ModBlocks.BLOCK_OF_OXYLITE.get(),
+                block -> createMultipleOreDropsBasic(ModBlocks.BLOCK_OF_OXYLITE.get(),                   // CHECK
+                        ModItems.OXYLITE_ITEM.get(), 1, 1));
     }
     protected LootTable.Builder createMultipleOreDropsFortExplBon(Block pBlock, Item item, float minDrops, float maxDrops){
         HolderLookup.RegistryLookup<Enchantment> registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);

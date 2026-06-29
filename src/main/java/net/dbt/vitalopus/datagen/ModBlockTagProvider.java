@@ -25,6 +25,11 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.BLOCK_OF_COPPER_ORE.get())
                 .add(ModBlocks.BLOCK_OF_SANDSTONE.get())
                 .add(ModBlocks.BLOCK_OF_GRANITE.get())
-                .add(ModBlocks.BLOCK_OF_DIRT.get());
+                .add(ModBlocks.BLOCK_OF_DIRT.get())
+                .add(ModBlocks.BLOCK_OF_SLIME.get())
+                .add(ModBlocks.BLOCK_OF_ABYSSALITE.get())
+                .add(ModBlocks.BLOCK_OF_IGNEOUS_ROCK.get())
+                .add(ModBlocks.BLOCK_OF_CLAY.get())
+                .add(ModBlocks.BLOCK_OF_GOLD_AMALGAM.get());
     }
 }

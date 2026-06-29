@@ -2,7 +2,9 @@ package net.dbt.vitalopus.handlers;
 
 import net.dbt.vitalopus.item.BlowerBuilderItem;
 import net.dbt.vitalopus.item.LightningHarvesterItem;
+import net.dbt.vitalopus.item.ModItems;
 import net.dbt.vitalopus.item.VacuumToolItem;
+import net.dbt.vitalopus.mining.ModAttachments;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -11,6 +13,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
@@ -83,5 +86,18 @@ public class GameEventHandlers {
             speedAttr.removeModifier(modifierId);
         }
     }
+    @SubscribeEvent
+    public static void onPlayerLogin(net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent event) {
+        if (!(event.getEntity() instanceof ServerPlayer player)) return;
 
+        if (player.getData(ModAttachments.STARTER_KIT_GIVEN.get())) return;
+
+        player.getInventory().add(new ItemStack(ModItems.LIGHTNING_HARVESTER.get()));
+        player.getInventory().add(new ItemStack(ModItems.BLOWER_BUILDER.get()));
+        player.getInventory().add(new ItemStack(ModItems.VACUUM_TOOL.get()));
+        player.getInventory().add(new ItemStack(ModItems.PLANT_RANCHER.get()));
+        // add any other starting items here
+
+        player.setData(ModAttachments.STARTER_KIT_GIVEN.get(), true);
+    }
 }

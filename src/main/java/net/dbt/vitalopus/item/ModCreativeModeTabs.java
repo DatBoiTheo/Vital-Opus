@@ -22,27 +22,31 @@ public class ModCreativeModeTabs {
                       output.accept(ModItems.ALGAE_ITEM);
                       output.accept(ModItems.WATERDROP);
                       output.accept(ModItems.DRIED_WATERDROP);
-                      output.accept(ModItems.CARBON_DIOXIDE);
-                      output.accept(ModItems.CERAMIC);
-                      output.accept(ModItems.CHLORINE);
-                      output.accept(ModItems.DIAMOND);
+                      output.accept(ModItems.CARBON_DIOXIDE_ITEM);
+                      output.accept(ModItems.CERAMIC_ITEM);
+                      output.accept(ModItems.CHLORINE_ITEM);
+                      output.accept(ModItems.DIAMOND_ITEM);
                       output.accept(ModItems.DIRT_ITEM);
-                      output.accept(ModItems.GENETIC_OOZE);
+                      output.accept(ModItems.GENETIC_OOZE_ITEM);
                       output.accept(ModItems.GRANITE_ITEM);
-                      output.accept(ModItems.HYDROGEN);
-                      output.accept(ModItems.OBSIDIAN);
-                      output.accept(ModItems.OXYGEN);
-                      output.accept(ModItems.POLLUTED_DIRT);
-                      output.accept(ModItems.REGOLITH);
+                      output.accept(ModItems.HYDROGEN_ITEM);
+                      output.accept(ModItems.OBSIDIAN_ITEM);
+                      output.accept(ModItems.OXYGEN_ITEM);
+                      output.accept(ModItems.POLLUTED_DIRT_ITEM);
+                      output.accept(ModItems.REGOLITH_ITEM);
                       output.accept(ModItems.SAND_ITEM);
                       output.accept(ModItems.SANDSTONE_ITEM);
-                      output.accept(ModItems.SNOW);
-                      output.accept(ModItems.SULFUR);
-                      output.accept(ModItems.SUPER_COOLANT);
+                      output.accept(ModItems.SNOW_ITEM);
+                      output.accept(ModItems.SULFUR_ITEM);
+                      output.accept(ModItems.SUPER_COOLANT_ITEM);
                       output.accept(ModItems.COPPER_ORE_ITEM);
                       output.accept(ModItems.SLIME_ITEM);
                       output.accept(ModItems.OXYLITE_ITEM);
                       output.accept(ModItems.FERTILIZER_ITEM);
+                      output.accept(ModItems.GOLD_AMALGAM_ITEM);
+                      output.accept(ModItems.ABYSSALITE_ITEM);
+                      output.accept(ModItems.CLAY_ITEM);
+                      output.accept(ModItems.IGNEOUS_ROCK_ITEM);
                     }).build());
 
     public static final Supplier<CreativeModeTab> VITAL_OPUS_BLOCKS_TAB = CREATIVE_MODE_TAB.register("vital_opus_blocks_tab",
@@ -59,6 +63,11 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.BLOCK_OF_DIRT);
                         output.accept(ModBlocks.BLOCK_OF_GRANITE);
                         output.accept(ModBlocks.BLOCK_OF_SLIME);
+                        output.accept(ModBlocks.BLOCK_OF_ABYSSALITE);
+                        output.accept(ModBlocks.BLOCK_OF_GOLD_AMALGAM);
+                        output.accept(ModBlocks.BLOCK_OF_CLAY);
+                        output.accept(ModBlocks.BLOCK_OF_IGNEOUS_ROCK);
+                        output.accept(ModBlocks.BLOCK_OF_DIAMOND);
                     }).build());
 
     public static final Supplier<CreativeModeTab> VITAL_OPUS_MACHINES_TAB = CREATIVE_MODE_TAB.register("vital_opus_machines_tab",
@@ -67,6 +76,10 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.vitalopus.vital_opus_machines"))
                     .displayItems((itemDisplayParameters, output) -> {
                       output.accept(ModBlocks.STEEL_BLOCK);
+                      output.accept(ModItems.VACUUM_TOOL);
+                      output.accept(ModItems.BLOWER_BUILDER);
+                      output.accept(ModItems.LIGHTNING_HARVESTER);
+                      output.accept(ModItems.PLANT_RANCHER);
                     }).build());
 
     public static void register(IEventBus eventBus){
