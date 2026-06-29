@@ -33,6 +33,27 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         add(ModBlocks.BLOCK_OF_ALGAE.get(),
                 block -> createMultipleOreDropsBasic(ModBlocks.BLOCK_OF_ALGAE.get(),
                         ModItems.ALGAE_ITEM.get(), 9, 9));
+        add(ModBlocks.BLOCK_OF_FERTILIZER.get(),
+                block -> createMultipleOreDropsBasic(ModBlocks.BLOCK_OF_FERTILIZER.get(),
+                        ModItems.FERTILIZER_ITEM.get(), 2, 3));
+        add(ModBlocks.BLOCK_OF_SAND.get(),
+                block -> createMultipleOreDropsBasic(ModBlocks.BLOCK_OF_SAND.get(),
+                        ModItems.SAND_ITEM.get(), 45, 47));
+        add(ModBlocks.BLOCK_OF_SANDSTONE.get(),
+                block -> createMultipleOreDropsBasic(ModBlocks.BLOCK_OF_SANDSTONE.get(),
+                        ModItems.SANDSTONE_ITEM.get(), 35, 92));
+        add(ModBlocks.BLOCK_OF_DIRT.get(),
+                block -> createMultipleOreDropsBasic(ModBlocks.BLOCK_OF_DIRT.get(),
+                        ModItems.DIRT_ITEM.get(), 82, 92));
+        add(ModBlocks.BLOCK_OF_GRANITE.get(),
+                block -> createMultipleOreDropsBasic(ModBlocks.BLOCK_OF_GRANITE.get(),
+                        ModItems.GRANITE_ITEM.get(), 1, 1));
+        add(ModBlocks.BLOCK_OF_COPPER_ORE.get(),
+                block -> createMultipleOreDropsBasic(ModBlocks.BLOCK_OF_COPPER_ORE.get(),
+                        ModItems.COPPER_ORE_ITEM.get(), 15, 16));
+        add(ModBlocks.BLOCK_OF_SLIME.get(),
+                block -> createMultipleOreDropsBasic(ModBlocks.BLOCK_OF_SLIME.get(),
+                        ModItems.SLIME_ITEM.get(), 10, 10));
     }
     protected LootTable.Builder createMultipleOreDropsFortExplBon(Block pBlock, Item item, float minDrops, float maxDrops){
         HolderLookup.RegistryLookup<Enchantment> registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);

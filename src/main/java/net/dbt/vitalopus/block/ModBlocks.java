@@ -28,7 +28,37 @@ public class ModBlocks {
             () -> new DropExperienceBlock(UniformInt.of(0, 0), BlockBehaviour.Properties.of()
                     .strength(4f)
                     .requiresCorrectToolForDrops()));
-    public static final DeferredBlock<Block> OXYLITE = registerBlock("oxylite",
+    public static final DeferredBlock<Block> BLOCK_OF_FERTILIZER = registerBlock("block_of_fertilizer",
+            () -> new DropExperienceBlock(UniformInt.of(0, 0), BlockBehaviour.Properties.of()
+                    .strength(4f)
+                    .requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> BLOCK_OF_SAND = registerBlock("block_of_sand",
+            () -> new DropExperienceBlock(UniformInt.of(0, 0), BlockBehaviour.Properties.of()
+                    .strength(4f)
+                    .requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> BLOCK_OF_COPPER_ORE = registerBlock("block_of_copper_ore",
+            () -> new DropExperienceBlock(UniformInt.of(0, 0), BlockBehaviour.Properties.of()
+                    .strength(4f)
+                    .requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> BLOCK_OF_SANDSTONE = registerBlock("block_of_sandstone",
+            () -> new DropExperienceBlock(UniformInt.of(0, 0), BlockBehaviour.Properties.of()
+                    .strength(4f)
+                    .requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> BLOCK_OF_GRANITE = registerBlock("block_of_granite",
+            () -> new DropExperienceBlock(UniformInt.of(0, 0), BlockBehaviour.Properties.of()
+                    .strength(4f)
+                    .requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> BLOCK_OF_DIRT = registerBlock("block_of_dirt",
+            () -> new DropExperienceBlock(UniformInt.of(0, 0), BlockBehaviour.Properties.of()
+                    .strength(4f)
+                    .requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> BLOCK_OF_SLIME = registerBlock("block_of_slime",
+            () -> new DropExperienceBlock(UniformInt.of(0, 0), BlockBehaviour.Properties.of()
+                    .strength(4f)
+                    .requiresCorrectToolForDrops()));
+
+
+    public static final DeferredBlock<Block> BLOCK_OF_OXYLITE = registerBlock("block_of_oxylite",
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(4f)
                     .noLootTable()));

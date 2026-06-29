@@ -36,11 +36,11 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> DIAMOND = ITEMS.register("diamond",
             () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> DIRT = ITEMS.register("dirt",
+    public static final DeferredItem<Item> DIRT_ITEM = ITEMS.register("dirt_item",
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> GENETIC_OOZE = ITEMS.register("genetic_ooze",
             () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> GRANITE = ITEMS.register("granite",
+    public static final DeferredItem<Item> GRANITE_ITEM = ITEMS.register("granite_item",
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> HYDROGEN = ITEMS.register("hydrogen",
             () -> new Item(new Item.Properties()));
@@ -52,15 +52,23 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> REGOLITH = ITEMS.register("regolith",
             () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> SAND = ITEMS.register("sand",
+    public static final DeferredItem<Item> SAND_ITEM = ITEMS.register("sand_item",
             () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> SANDSTONE = ITEMS.register("sandstone",
+    public static final DeferredItem<Item> SANDSTONE_ITEM = ITEMS.register("sandstone_item",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> COPPER_ORE_ITEM = ITEMS.register("copper_ore_item",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> FERTILIZER_ITEM = ITEMS.register("fertilizer_item",
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> SNOW = ITEMS.register("snow",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> SLIME_ITEM = ITEMS.register("slime_item",
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> SULFUR = ITEMS.register("sulfur",
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> SUPER_COOLANT = ITEMS.register("super_coolant",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> OXYLITE_ITEM = ITEMS.register("oxylite_item",
             () -> new Item(new Item.Properties()));
 
         public static final DeferredItem<Item> MEAL_LICE = ITEMS.register("meal_lice",

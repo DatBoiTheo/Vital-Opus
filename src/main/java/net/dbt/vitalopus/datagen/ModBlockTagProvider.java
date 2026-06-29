@@ -19,6 +19,12 @@ public class ModBlockTagProvider extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.BLOCK_OF_ALGAE.get());
+                .add(ModBlocks.BLOCK_OF_ALGAE.get())
+                .add(ModBlocks.BLOCK_OF_FERTILIZER.get())
+                .add(ModBlocks.BLOCK_OF_SAND.get())
+                .add(ModBlocks.BLOCK_OF_COPPER_ORE.get())
+                .add(ModBlocks.BLOCK_OF_SANDSTONE.get())
+                .add(ModBlocks.BLOCK_OF_GRANITE.get())
+                .add(ModBlocks.BLOCK_OF_DIRT.get());
     }
 }

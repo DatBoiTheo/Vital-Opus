@@ -25,19 +25,22 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.CERAMIC.get());
         basicItem(ModItems.CHLORINE.get());
         basicItem(ModItems.DIAMOND.get());
-        basicItem(ModItems.DIRT.get());
+        basicItem(ModItems.DIRT_ITEM.get());
         basicItem(ModItems.GENETIC_OOZE.get());
-        basicItem(ModItems.GRANITE.get());
+        basicItem(ModItems.GRANITE_ITEM.get());
         basicItem(ModItems.HYDROGEN.get());
         basicItem(ModItems.OBSIDIAN.get());
         basicItem(ModItems.OXYGEN.get());
         basicItem(ModItems.POLLUTED_DIRT.get());
         basicItem(ModItems.REGOLITH.get());
-        basicItem(ModItems.SAND.get());
-        basicItem(ModItems.SANDSTONE.get());
+        basicItem(ModItems.SAND_ITEM.get());
+        basicItem(ModItems.SANDSTONE_ITEM.get());
+        basicItem(ModItems.FERTILIZER_ITEM.get());
+        basicItem(ModItems.COPPER_ORE_ITEM.get());
         basicItem(ModItems.SNOW.get());
         basicItem(ModItems.SULFUR.get());
         basicItem(ModItems.SUPER_COOLANT.get());
+        basicItem(ModItems.SLIME_ITEM.get());
 
         basicItem(ModItems.MEAL_LICE.get());
         basicItem(ModItems.BURIED_MUCKROOT_SEED.get());
