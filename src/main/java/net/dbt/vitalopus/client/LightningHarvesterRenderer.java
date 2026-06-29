@@ -4,6 +4,7 @@ import com.mojang.blaze3d.vertex.*;
 import net.dbt.vitalopus.item.LightningHarvesterItem;
 import net.dbt.vitalopus.mining.MiningTier;
 import net.dbt.vitalopus.mining.ModAttachments;
+import net.dbt.vitalopus.particle.ModParticles;
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GameRenderer;
@@ -18,7 +19,6 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.dbt.vitalopus.client.particle.ModParticles;
 import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -73,7 +73,7 @@ public class LightningHarvesterRenderer {
                 g = 0x30;
                 b = 0x30;
 
-                particleType = ModParticles.LIGHTNINGHARVESTERTIER2.get();
+                particleType = ModParticles.LIGHTNINGHARVESTERTIER2PARTICLE.get();
             }
         }
 

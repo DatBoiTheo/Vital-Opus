@@ -7,6 +7,7 @@ import net.dbt.vitalopus.item.ModCreativeModeTabs;
 import net.dbt.vitalopus.item.ModItems;
 import net.dbt.vitalopus.mining.ModAttachments;
 import net.dbt.vitalopus.particle.LightningHarvesterParticleTier2;
+import net.dbt.vitalopus.particle.ModParticles;
 import net.dbt.vitalopus.worldgen.ModFeatures;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.api.distmarker.Dist;
@@ -14,7 +15,6 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.dbt.vitalopus.client.particle.ModParticles;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
@@ -73,7 +73,7 @@ public class VitalOpus {
     {
         @SubscribeEvent
         public static void registerParticles(RegisterParticleProvidersEvent event) {
-            event.registerSpriteSet(ModParticles.LIGHTNINGHARVESTERTIER2.get(),
+            event.registerSpriteSet(ModParticles.LIGHTNINGHARVESTERTIER2PARTICLE.get(),
                     LightningHarvesterParticleTier2.Provider::new);
         }
 
